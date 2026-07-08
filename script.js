@@ -187,39 +187,6 @@
   resize();
   drawFrame();
 
-  // ─── CUSTOM CURSOR ────────────────────────────────────────
-  const cursor = document.getElementById("cursor");
-  const follower = document.getElementById("cursorFollower");
-
-  let mx = -100, my = -100;
-  let fx = -100, fy = -100;
-
-  document.addEventListener("mousemove", e => {
-    mx = e.clientX;
-    my = e.clientY;
-    cursor.style.left = mx + "px";
-    cursor.style.top = my + "px";
-  });
-
-  function animateFollower() {
-    fx += (mx - fx) * 0.12;
-    fy += (my - fy) * 0.12;
-    follower.style.left = fx + "px";
-    follower.style.top = fy + "px";
-    requestAnimationFrame(animateFollower);
-  }
-  animateFollower();
-
-  document.querySelectorAll("a, button, .service-card, .portfolio-card").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-      cursor.classList.add("expanded");
-      follower.classList.add("expanded");
-    });
-    el.addEventListener("mouseleave", () => {
-      cursor.classList.remove("expanded");
-      follower.classList.remove("expanded");
-    });
-  });
 
   // ─── NAVBAR SCROLL ────────────────────────────────────────
   const navbar = document.getElementById("navbar");
@@ -238,6 +205,16 @@
   mobileMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => mobileMenu.classList.remove("open"));
   });
+
+  // Mobile Dropdown Toggle
+  const mobileDropdownToggle = document.querySelector(".mobile-dropdown-toggle");
+  if (mobileDropdownToggle) {
+    mobileDropdownToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      mobileDropdownToggle.parentElement.classList.toggle("open");
+    });
+  }
 
   // ─── PARALLAX SCROLLING ───────────────────────────────────
   const parallaxLayers = document.querySelectorAll("[data-speed]");
@@ -286,7 +263,7 @@
 
   // ─── SCROLL REVEAL ────────────────────────────────────────
   const revealEls = document.querySelectorAll(
-    ".service-card, .process-step, .why-card, .about-vm-card, .about-intro, .testimonial-card, .section-header"
+    ".service-card, .process-step, .why-card, .about-vm-card, .about-intro, .testimonial-card, .section-header, .timeline-item, .deep-dive-block, .about-dd-block"
   );
 
   revealEls.forEach(el => el.classList.add("reveal"));
@@ -389,6 +366,45 @@
       }, 300);
     }, 4000);
   }
+
+  // ─── FAQ ACCORDION ────────────────────────────────────────
+  document.querySelectorAll(".faq-item").forEach(item => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    const icon = item.querySelector(".faq-icon");
+
+    question.addEventListener("click", () => {
+      const isOpen = item.classList.contains("active");
+
+      // Close all other FAQs in the same container/page
+      const accordion = item.closest(".faq-accordion");
+      if (accordion) {
+        accordion.querySelectorAll(".faq-item").forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+            otherItem.querySelector(".faq-answer").style.maxHeight = null;
+            otherItem.querySelector(".faq-answer").style.marginTop = null;
+            otherItem.querySelector(".faq-icon").textContent = "+";
+            otherItem.querySelector(".faq-icon").style.transform = "";
+          }
+        });
+      }
+
+      if (!isOpen) {
+        item.classList.add("active");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        answer.style.marginTop = "15px";
+        icon.textContent = "−";
+        icon.style.transform = "rotate(180deg)";
+      } else {
+        item.classList.remove("active");
+        answer.style.maxHeight = null;
+        answer.style.marginTop = null;
+        icon.textContent = "+";
+        icon.style.transform = "";
+      }
+    });
+  });
 
   console.log(
     `%c[TIA SOFTWARE SOLUTIONS] — v2.0.0\n%cDesigning Your Digital Future.`,

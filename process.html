@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-97DXKC53G1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-97DXKC53G1');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Process | TIA Software Solutions</title>
+  <meta name="description"
+    content="Discover the structured 4-step process TIA Software Solutions follows — from consultation to long-term growth — to deliver real results for businesses in India." />
+  <link rel="canonical" href="https://www.tiasoftwaresolutions.com/process.html" />
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/webp" href="assets/logo.webp" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.webp" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#953a8e" />
+
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.tiasoftwaresolutions.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Our Process",
+        "item": "https://www.tiasoftwaresolutions.com/process.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Our Process | TIA Software Solutions" />
+  <meta property="og:description"
+    content="Discover the structured 4-step process TIA Software Solutions follows — from consultation to long-term growth — to deliver real results for businesses in India." />
+  <meta property="og:image" content="https://www.tiasoftwaresolutions.com/assets/logo.webp" />
+  <meta property="og:url" content="https://www.tiasoftwaresolutions.com/process.html" />
+  <meta property="og:type" content="website" />
+  <!-- Page-Specific Process Styles -->
+  <style>
+    /* Page-Specific Process Timeline Styles */
+    .process {
+      padding: 120px 0 !important;
+      background: radial-gradient(circle at 50% 50%, rgba(149, 58, 142, 0.03) 0%, transparent 85%) !important;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* The vertical line in the middle */
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(149, 58, 142, 0.05) 0%, var(--purple) 15%, var(--purple-light) 85%, rgba(149, 58, 142, 0.05) 100%);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    /* Container for each timeline item */
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px 60px;
+      box-sizing: border-box;
+      display: flex;
+      z-index: 2;
+    }
+
+    .timeline-item.reveal {
+      opacity: 0;
+      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    .timeline-item.left.reveal {
+      transform: translateX(-100px);
+    }
+
+    .timeline-item.right.reveal {
+      transform: translateX(100px);
+    }
+
+    .timeline-item.reveal.visible {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
+
+    /* Align left timeline item */
+    .timeline-item.left {
+      left: 0;
+      justify-content: flex-end;
+    }
+
+    /* Align right timeline item */
+    .timeline-item.right {
+      left: 50%;
+      justify-content: flex-start;
+    }
+
+    /* The circular badges on the line */
+    .timeline-badge {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: var(--black);
+      border: 2px solid var(--purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--purple);
+      box-shadow: 0 0 15px rgba(149, 58, 142, 0.2);
+      z-index: 3;
+      transition: all 0.35s ease;
+    }
+
+    .timeline-item.right .timeline-badge {
+      left: 0;
+    }
+
+    .timeline-item:hover .timeline-badge {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 25px rgba(149, 58, 142, 0.5);
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    /* Cards */
+    .timeline-card {
+      width: 100%;
+      max-width: 460px;
+      padding: 32px !important;
+      background: rgba(255, 255, 255, 0.75) !important;
+      border: 1px solid rgba(149, 58, 142, 0.12) !important;
+      border-radius: 16px !important;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      text-align: left;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      position: relative;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(149, 58, 142, 0.35) !important;
+      box-shadow: 0 15px 35px rgba(149, 58, 142, 0.08), 0 0 15px rgba(149, 58, 142, 0.03) !important;
+    }
+
+    /* Icon Container */
+    .card-icon-container {
+      width: 48px;
+      height: 48px;
+      background: rgba(149, 58, 142, 0.08);
+      border: 1px solid rgba(149, 58, 142, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-card:hover .card-icon-container {
+      background: rgba(149, 58, 142, 0.15);
+      color: var(--purple-light);
+      transform: scale(1.05);
+    }
+
+    .card-icon-container svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Card Content */
+    .card-content h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .card-content p {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Responsive style overrides */
+    @media (max-width: 850px) {
+      .timeline-line {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding: 20px 20px 20px 70px;
+      }
+
+      .timeline-item.left {
+        justify-content: flex-start;
+      }
+
+      .timeline-item.right {
+        left: 0;
+        justify-content: flex-start;
+      }
+
+      .timeline-badge {
+        left: 30px !important;
+      }
+
+      .timeline-card {
+        max-width: 100%;
+      }
+
+      .timeline-item.left.reveal {
+        transform: translateX(-40px);
+      }
+
+      .timeline-item.right.reveal {
+        transform: translateX(40px);
+      }
+    }
+
+    /* ── PROCESS DEEP-DIVE SECTION ── */
+    .process-deep-dive {
+      padding: 100px 0;
+    }
+
+    .deep-dive-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .deep-dive-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .deep-dive-block.reverse .deep-dive-visual {
+      order: -1;
+    }
+
+    .deep-dive-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .deep-dive-text h3 .accent {
+      color: var(--purple);
+    }
+
+    .deep-dive-text p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--grey);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .deep-dive-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .deep-dive-visual {
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(149, 58, 142, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .highlight-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    .highlight-list li .hl-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: rgba(149, 58, 142, 0.08);
+      border: 1px solid rgba(149, 58, 142, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat-box {
+      padding: 24px;
+      border-radius: 14px;
+      background: rgba(149, 58, 142, 0.04);
+      border: 1px solid rgba(149, 58, 142, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      border-color: rgba(149, 58, 142, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .stat-box .stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--purple);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-box .stat-label {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .deep-dive-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+      border: none;
+      border-radius: 3px;
+      margin: 0 auto 80px auto;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 850px) {
+      .deep-dive-block {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .deep-dive-block.reverse .deep-dive-visual {
+        order: 0;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CANVAS BACKGROUND -->
+  <canvas id="techCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.webp" alt="TIA Software Solutions Logo" class="nav-logo-image" width="500" height="500"
+          loading="lazy">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#services" class="dropdown-toggle">Services <span class="chevron">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="virtual-assistance.html">Virtual Assistance</a></li>
+            <li><a href="branding-essentials.html">Branding Essentials</a></li>
+            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+            <li><a href="creative-design.html">Creative Design</a></li>
+            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
+            <li><a href="video-motion-graphics.html">Video & Motion Graphics</a></li>
+            <li><a href="stories-reels-assets.html">Stories & Reels Assets</a></li>
+            <li><a href="seasonal-festive.html">Seasonal & Festive</a></li>
+            <li><a href="event-launch-graphics.html">Event & Launch Graphics</a></li>
+          </ul>
+        </li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle">Services <span class="chevron">▼</span></button>
+        <div class="mobile-dropdown-menu">
+          <a href="virtual-assistance.html">Virtual Assistance</a>
+          <a href="branding-essentials.html">Branding Essentials</a>
+          <a href="digital-marketing.html">Digital Marketing</a>
+          <a href="creative-design.html">Creative Design</a>
+          <a href="ui-ux-design.html">UI/UX Design</a>
+          <a href="video-motion-graphics.html">Video & Motion Graphics</a>
+          <a href="stories-reels-assets.html">Stories & Reels Assets</a>
+          <a href="seasonal-festive.html">Seasonal & Festive</a>
+          <a href="event-launch-graphics.html">Event & Launch Graphics</a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero"
+    style="min-height: 40vh; display: flex; align-items: center; justify-content: center; padding-top: 100px;">
+    <div class="parallax-layer layer-2" data-speed="0.5" style="position: relative; z-index: 2;">
+      <div class="hero-content" style="text-align: center;">
+        <h1 class="hero-title">
+          <span class="line">OUR</span>
+          <span class="line accent">PROCESS</span>
+        </h1>
+        <p class="hero-sub" style="margin-top: 20px;">A structured approach that delivers results from day one to
+          long-term growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="timeline-container">
+
+        <!-- Center line -->
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Item 1 (Left) -->
+        <div class="timeline-item left">
+          <div class="timeline-badge">01</div>
+          <div class="timeline-card glass-card">
+            <div class="card-icon-container">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z" stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M24 16v8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Consultation</h3>
+              <p>We take time to deeply understand your business, goals, target audience, and current challenges before
+                recommending any solution.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 (Right) -->
+        <div class="timeline-item right">
+          <div class="timeline-badge">02</div>
+          <div class="timeline-card glass-card">
+            <div class="card-icon-container">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M8 36l8-12 8 8 8-10 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="6" y="6" width="36" height="28" rx="3" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Strategy</h3>
+              <p>We plan the best growth approach with detailed roadmaps, timelines, and measurable KPIs tailored to
+                your business needs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 (Left) -->
+        <div class="timeline-item left">
+          <div class="timeline-badge">03</div>
+          <div class="timeline-card glass-card">
+            <div class="card-icon-container">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M16 28l-6 6 4 4 6-6M30 14l4-4a4 4 0 015.66 5.66l-4 4" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+                <path d="M16 28l16-16" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Execution</h3>
+              <p>We design, build, and launch your solution with meticulous attention to detail — on time and within
+                budget, every time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 (Right) -->
+        <div class="timeline-item right">
+          <div class="timeline-badge">04</div>
+          <div class="timeline-card glass-card">
+            <div class="card-icon-container">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 8v8M36 12l-6 6M40 24h-8M36 36l-6-6M24 40v-8M12 36l6-6M8 24h8M12 12l6 6"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Growth & Support</h3>
+              <p>We continuously optimize, scale, and support your business — tracking results and adapting strategies
+                for long-term success.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS DEEP-DIVE -->
+  <section class="process-deep-dive" id="process-details">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">Deep Dive</span>
+        <h2 class="section-title">How We <span class="accent">Deliver Results</span></h2>
+        <p class="section-sub">Every project at TIA Software Solutions follows a proven, transparent workflow designed
+          to eliminate guesswork and maximise return on investment for businesses across India.</p>
+      </div>
+
+      <!-- ── BLOCK 1: CONSULTATION ── -->
+      <div class="deep-dive-block">
+        <div class="deep-dive-text">
+          <h3>Step 01 — <span class="accent">Consultation</span></h3>
+          <p>
+            Our engagement begins long before a single pixel is designed or a line of code is written. During the
+            consultation phase, our senior strategists invest dedicated time understanding the DNA of your business —
+            its mission, competitive landscape, ideal customer profile, and existing digital footprint.
+          </p>
+          <p>
+            We conduct a thorough audit of your current website, social media channels, branding assets, and marketing
+            funnels to identify gaps and untapped opportunities. Whether you are a bootstrapped startup in Bengaluru or
+            an established enterprise in Mumbai, this diagnostic step ensures every recommendation we make is
+            data-driven and tailored specifically to your market.
+          </p>
+          <p>
+            By the end of this phase, you receive a comprehensive Discovery Report — a clear, jargon-free document that
+            outlines our findings, recommended service packages, projected timelines, and transparent pricing. No
+            surprises, no hidden fees.
+          </p>
+        </div>
+        <div class="deep-dive-visual glass-card">
+          <ul class="highlight-list">
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                  <rect x="9" y="3" width="6" height="4" rx="1" />
+                </svg></span>
+              <span><strong>Business Discovery Call</strong> — A 30-45 minute deep-dive into your objectives, target
+                audience, and current pain points.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg></span>
+              <span><strong>Digital Audit</strong> — We review your website speed, SEO health, social presence, and
+                competitor benchmarks.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg></span>
+              <span><strong>Opportunity Mapping</strong> — Identifying quick wins and long-term growth levers unique to
+                your industry.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg></span>
+              <span><strong>Discovery Report</strong> — A structured document with actionable findings and a clear
+                project scope.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="deep-dive-divider">
+
+      <!-- ── BLOCK 2: STRATEGY ── -->
+      <div class="deep-dive-block reverse">
+        <div class="deep-dive-text">
+          <h3>Step 02 — <span class="accent">Strategy</span></h3>
+          <p>
+            Once we understand your business inside-out, our multidisciplinary team assembles a detailed growth roadmap.
+            This is not a generic template — every strategy we build is hand-crafted from the ground up to align with
+            your specific KPIs, budget constraints, and market dynamics.
+          </p>
+          <p>
+            Our strategists map out the complete user journey — from the moment a potential customer discovers your
+            brand online to the point of conversion and beyond. We define the optimal mix of services — whether that's a
+            complete branding overhaul, a performance-driven digital marketing campaign, a conversion-optimised website
+            redesign, or an integrated combination of all three.
+          </p>
+          <p>
+            We present the strategy in a collaborative workshop session where you and your team can ask questions,
+            request modifications, and approve milestones. Every deliverable, deadline, and metric is documented in a
+            shared project tracker so you always know exactly where things stand.
+          </p>
+          <p>
+            For businesses targeting India's diverse consumer base, we also factor in regional language considerations,
+            cultural nuances, and platform-specific behaviours — for example, the dominance of WhatsApp and Instagram
+            Reels in tier-2 and tier-3 cities.
+          </p>
+        </div>
+        <div class="deep-dive-visual glass-card">
+          <ul class="highlight-list">
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+                  <line x1="8" y1="2" x2="8" y2="18" />
+                  <line x1="16" y1="6" x2="16" y2="22" />
+                </svg></span>
+              <span><strong>Custom Roadmap</strong> — A week-by-week project plan with clearly defined milestones and
+                owner assignments.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg></span>
+              <span><strong>KPI Definition</strong> — We establish measurable success metrics: traffic, leads,
+                conversion rate, ROAS, and more.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg></span>
+              <span><strong>Service Blueprint</strong> — Detailed scope for each deliverable — branding, web, marketing,
+                design — with revision rounds.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg></span>
+              <span><strong>Collaborative Workshop</strong> — A live session where your team reviews, questions, and
+                approves the full strategy.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg></span>
+              <span><strong>Competitor Analysis</strong> — We study your top 5 competitors to identify differentiation
+                opportunities.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="deep-dive-divider">
+
+      <!-- ── BLOCK 3: EXECUTION ── -->
+      <div class="deep-dive-block">
+        <div class="deep-dive-text">
+          <h3>Step 03 — <span class="accent">Execution</span></h3>
+          <p>
+            This is where strategy meets craftsmanship. Our design and development teams work in agile sprints —
+            typically 1-2 week cycles — to bring your project to life with precision and speed. Every sprint concludes
+            with a review checkpoint where you see real progress and provide feedback.
+          </p>
+          <p>
+            For branding projects, we explore multiple creative directions before honing in on the one that best
+            captures your brand's personality. For web development, we build mobile-first, SEO-optimised, and
+            performance-tested — because 70% of India's internet traffic comes from mobile devices.
+          </p>
+          <p>
+            Our design team works in Figma with live preview links so you can see every screen, interaction, and
+            animation before it goes to code. Our developers follow industry-standard coding practices — clean,
+            commented, and version-controlled — so your codebase is maintainable for years to come.
+          </p>
+          <p>
+            Digital marketing campaigns are launched with A/B tested creatives and audiences, optimised daily by our
+            performance marketers. We don't just "set and forget" — we actively manage your budget to squeeze maximum
+            ROI from every rupee spent.
+          </p>
+          <p>
+            Quality assurance is baked into every stage. Every deliverable passes through internal peer review,
+            cross-browser testing, and accessibility checks before being presented to you.
+          </p>
+        </div>
+        <div class="deep-dive-visual glass-card">
+          <div class="stat-grid">
+            <div class="stat-box">
+              <span class="stat-number">1-2</span>
+              <span class="stat-label">Week Sprints</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Mobile-First</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">3x</span>
+              <span class="stat-label">QA Checkpoints</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">24hr</span>
+              <span class="stat-label">Feedback Loops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="deep-dive-divider">
+
+      <!-- ── BLOCK 4: GROWTH & SUPPORT ── -->
+      <div class="deep-dive-block reverse">
+        <div class="deep-dive-text">
+          <h3>Step 04 — <span class="accent">Growth & Support</span></h3>
+          <p>
+            Launching is just the beginning. After your project goes live, our growth team continuously monitors
+            performance metrics, user behaviour, and conversion data to identify areas for optimisation. We believe in
+            sustained, compounding growth — not one-off results.
+          </p>
+          <p>
+            Our post-launch support includes website maintenance, security updates, server uptime monitoring, and
+            content refreshes. For marketing clients, we provide monthly performance reports with clear insights into
+            what's working and what needs adjustment — so you're never left wondering where your budget went.
+          </p>
+          <p>
+            As your business evolves, so does our strategy. Whether you're expanding into new cities, launching a new
+            product line, or scaling your ad spend during festive seasons like Diwali, Pongal, or Navratri, we adapt our
+            approach to match your growth trajectory.
+          </p>
+          <p>
+            Every client at TIA gets a dedicated account manager — a single point of contact who understands your brand,
+            responds within 24 hours, and proactively brings new ideas to the table. We don't just work for you; we work
+            with you as an extension of your team.
+          </p>
+        </div>
+        <div class="deep-dive-visual glass-card">
+          <ul class="highlight-list">
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg></span>
+              <span><strong>Ongoing Maintenance</strong> — Security patches, plugin updates, server monitoring, and
+                99.9% uptime guarantee.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg></span>
+              <span><strong>Monthly Reports</strong> — Transparent performance dashboards covering traffic, conversions,
+                and ROI.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
+                  <path
+                    d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 3 0 3 0" />
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-3 0-3" />
+                </svg></span>
+              <span><strong>Seasonal Campaigns</strong> — Dedicated festive and seasonal marketing pushes to capitalise
+                on India's peak buying periods.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg></span>
+              <span><strong>Dedicated Account Manager</strong> — A single point of contact who knows your brand and
+                responds within 24 hours.</span>
+            </li>
+            <li>
+              <span class="hl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10" />
+                  <polyline points="1 20 1 14 7 14" />
+                  <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                </svg></span>
+              <span><strong>Iterative Optimisation</strong> — We continuously test, tweak, and improve — your growth
+                never plateaus.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+        <p class="section-sub">Have questions? We have answers. Find everything you need to know about our project
+          process in India.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does the consultation phase take?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Typically, the initial consultation takes 1-2 business days to schedule. The meeting itself is a
+              deep-dive session of 30-45 minutes where we analyze your project scope and objectives.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What inputs do you need from us during the strategy phase?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We'll require your core business objectives, target audience details, existing brand guidelines (if any),
+              logo files, design preferences, and references of websites or social profiles you like.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can we request revisions during the execution phase?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. We follow an iterative review process. At key milestones (e.g., initial wireframe, design
+              draft), we gather your feedback and apply necessary revisions to ensure alignment with your vision.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What kind of ongoing support do you offer after project completion?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We provide comprehensive post-launch support including website maintenance, server optimization, regular
+              content updates, and seasonal marketing graphics adjustments tailored to your needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="services" style="padding: 60px 0;">
+    <div class="container" style="text-align: center;">
+      <div class="section-header">
+        <h2 class="section-title">Ready to <span class="accent">Get Started?</span></h2>
+        <p class="section-sub">Let's discuss your project and build something amazing together.</p>
+      </div>
+      <a href="index.html#contact" class="btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">Get a Free
+        Consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="TIA Software Solutions Logo" class="footer-logo-image" width="500"
+            height="500" loading="lazy">
+          <p>Designing your digital future from India.<br />Websites. Branding. Marketing.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <strong>Services</strong>
+            <a href="index.html#services">Virtual Assistance</a>
+            <a href="index.html#services">Branding Essentials</a>
+            <a href="index.html#services">Digital Marketing</a>
+            <a href="index.html#services">Creative Design</a>
+            <a href="index.html#services">UI/UX Design</a>
+          </div>
+          <div class="footer-col">
+            <strong>Company</strong>
+            <a href="process.html">Our Process</a>
+            <a href="about.html">About</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="index.html#contact">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <strong>Contact</strong>
+            <a href="tel:+917358033243">+91 73580 33243</a>
+            <a href="tel:+447451255217">+44 7451255217</a>
+            <a href="mailto:info@tiasoftwaresolutions.com">info@tiasoftwaresolutions.com</a>
+            <a href="https://wa.me/917358033243">WhatsApp Us</a>
+            <span style="font-size: 0.82rem; color: var(--grey); line-height: 1.4; margin-top: 4px;">No.5, New No.2, Old
+              Mount Poonamallee Rd, Ramapuram, Chennai, Greater Chennai, Tamil Nadu 600089</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 TIA Software Solutions. All rights reserved. Operating in India.</span>
+        <span class="footer-mono">Designing Digital Futures ♥</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

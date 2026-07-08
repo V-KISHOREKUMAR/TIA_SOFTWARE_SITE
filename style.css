@@ -50,7 +50,6 @@ body {
   color: var(--white);
   font-family: var(--font-body);
   overflow-x: hidden;
-  cursor: none;
 }
 
 a {
@@ -77,47 +76,6 @@ img {
   pointer-events: none;
 }
 
-/* ---------- CUSTOM CURSOR ---------- */
-.cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--purple);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: normal;
-}
-
-.cursor-follower {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--purple);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, width 0.3s, height 0.3s, opacity 0.3s;
-  opacity: 0.5;
-}
-
-body:hover .cursor {
-  opacity: 1;
-}
-
-.cursor.expanded {
-  width: 16px;
-  height: 16px;
-}
-
-.cursor-follower.expanded {
-  width: 56px;
-  height: 56px;
-  opacity: 0.25;
-}
 
 /* ---------- WHATSAPP FAB ---------- */
 .whatsapp-fab {
@@ -282,7 +240,7 @@ section {
   gap: 5px;
   background: none;
   border: none;
-  cursor: none;
+  cursor: pointer;
   padding: 4px;
 }
 
@@ -351,7 +309,7 @@ section {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
-  cursor: none;
+  cursor: pointer;
   transition: var(--transition);
 }
 
@@ -1762,4 +1720,210 @@ section {
     flex-direction: column;
     gap: 28px;
   }
+}
+
+/* ---------- FAQ ACCORDION ---------- */
+.faq-section {
+  position: relative;
+  z-index: 2;
+  background: var(--black);
+  padding: 80px 0;
+}
+
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  padding: 24px 32px;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.faq-item:hover {
+  border-color: rgba(149, 58, 142, 0.35);
+  transform: translateY(-2px);
+}
+
+.faq-item.active {
+  border-color: var(--purple);
+  box-shadow: 0 10px 30px var(--purple-glow);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--white);
+  gap: 16px;
+}
+
+.faq-icon {
+  color: var(--purple);
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), margin-top 0.35s ease;
+  color: var(--grey);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.faq-answer p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   NAVBAR DROPDOWN SYSTEM
+   ============================================================ */
+
+/* Desktop Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.dropdown-toggle .chevron {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+  color: var(--purple-light);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  padding: 16px 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown:hover .dropdown-toggle .chevron {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: none !important;
+  font-family: var(--font-syne);
+  color: var(--purple);
+  transition: var(--transition);
+  text-align: left;
+  font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+  background: var(--purple);
+  color: var(--white) !important;
+  padding-left: 28px;
+}
+
+/* Mobile Dropdown styles */
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile-dropdown-toggle {
+  background: none;
+  border: none;
+  color: var(--grey);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.mobile-dropdown-toggle:hover {
+  color: var(--purple-light);
+}
+
+.mobile-dropdown-toggle .chevron {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-menu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 10px;
+  gap: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-dropdown.open .mobile-dropdown-menu {
+  display: flex;
+}
+
+.mobile-dropdown.open .mobile-dropdown-toggle .chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu a {
+  font-family: var(--font-syne) !important;
+  font-size: 0.82rem !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  padding: 4px 0;
+  color: var(--purple) !important;
 }
