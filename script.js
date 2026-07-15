@@ -29,7 +29,7 @@
   // Node graph
   function initNodes() {
     nodes = [];
-    const count = Math.floor((W * H) / 22000);
+    const count = Math.min(80, Math.floor((W * H) / 22000));
     for (let i = 0; i < count; i++) {
       nodes.push({
         x: Math.random() * W,
@@ -99,14 +99,16 @@
     ctx.fillStyle = scanGrad;
     ctx.fillRect(0, scanLine - 60, W, 120);
 
-    // Connections between nearby nodes
+    // Connections between nearby nodes (optimized to avoid Math.sqrt in bulk)
+    const maxDist = 140;
+    const maxDistSq = maxDist * maxDist;
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x;
         const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxDist = 140;
-        if (dist < maxDist) {
+        const distSq = dx * dx + dy * dy;
+        if (distSq < maxDistSq) {
+          const dist = Math.sqrt(distSq);
           const alpha = (1 - dist / maxDist) * 0.12;
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -190,8 +192,14 @@
 
   // ─── NAVBAR SCROLL ────────────────────────────────────────
   const navbar = document.getElementById("navbar");
+  let navbarScheduled = false;
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    if (navbarScheduled) return;
+    navbarScheduled = true;
+    requestAnimationFrame(() => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+      navbarScheduled = false;
+    });
   });
 
   // ─── HAMBURGER ────────────────────────────────────────────
@@ -218,13 +226,19 @@
 
   // ─── PARALLAX SCROLLING ───────────────────────────────────
   const parallaxLayers = document.querySelectorAll("[data-speed]");
+  let parallaxScheduled = false;
 
   function updateParallax() {
-    const scrollY = window.scrollY;
-    parallaxLayers.forEach(layer => {
-      const speed = parseFloat(layer.dataset.speed);
-      const offset = scrollY * speed;
-      layer.style.transform = `translateY(${offset}px)`;
+    if (parallaxScheduled) return;
+    parallaxScheduled = true;
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      parallaxLayers.forEach(layer => {
+        const speed = parseFloat(layer.dataset.speed);
+        const offset = scrollY * speed;
+        layer.style.transform = `translateY(${offset}px)`;
+      });
+      parallaxScheduled = false;
     });
   }
 
@@ -334,10 +348,18 @@
 
   sections.forEach(s => sectionObserver.observe(s));
 
-  // ─── CARD MOUSE TILT ─────────────────────────────────────
+  // ─── CARD MOUSE TILT (optimized to avoid forced reflows) ───
   document.querySelectorAll(".glass-card").forEach(card => {
+    let rect = null;
+
+    card.addEventListener("mouseenter", () => {
+      rect = card.getBoundingClientRect();
+    });
+
     card.addEventListener("mousemove", e => {
-      const rect = card.getBoundingClientRect();
+      if (!rect) {
+        rect = card.getBoundingClientRect();
+      }
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
       const dx = (e.clientX - cx) / (rect.width / 2);
@@ -351,6 +373,7 @@
     });
 
     card.addEventListener("mouseleave", () => {
+      rect = null;
       card.style.transform = "";
       card.style.transition = "all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
     });

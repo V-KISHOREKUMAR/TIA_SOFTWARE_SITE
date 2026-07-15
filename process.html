@@ -48,9 +48,9 @@
   <link rel="stylesheet" href="style.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Open Graph Tags -->
   <meta property="og:title" content="Our Process | TIA Software Solutions" />
@@ -212,7 +212,7 @@
     }
 
     /* Card Content */
-    .card-content h3 {
+    .card-content h2 {
       font-family: var(--font-display);
       font-size: 1rem;
       font-weight: 700;
@@ -518,7 +518,7 @@
               </svg>
             </div>
             <div class="card-content">
-              <h3>Consultation</h3>
+              <h2>Consultation</h2>
               <p>We take time to deeply understand your business, goals, target audience, and current challenges before
                 recommending any solution.</p>
             </div>
@@ -537,7 +537,7 @@
               </svg>
             </div>
             <div class="card-content">
-              <h3>Strategy</h3>
+              <h2>Strategy</h2>
               <p>We plan the best growth approach with detailed roadmaps, timelines, and measurable KPIs tailored to
                 your business needs.</p>
             </div>
@@ -556,7 +556,7 @@
               </svg>
             </div>
             <div class="card-content">
-              <h3>Execution</h3>
+              <h2>Execution</h2>
               <p>We design, build, and launch your solution with meticulous attention to detail — on time and within
                 budget, every time.</p>
             </div>
@@ -575,7 +575,7 @@
               </svg>
             </div>
             <div class="card-content">
-              <h3>Growth & Support</h3>
+              <h2>Growth & Support</h2>
               <p>We continuously optimize, scale, and support your business — tracking results and adapting strategies
                 for long-term success.</p>
             </div>
