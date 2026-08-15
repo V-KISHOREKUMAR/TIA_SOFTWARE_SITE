@@ -191,16 +191,7 @@
 
 
   // ─── NAVBAR SCROLL ────────────────────────────────────────
-  const navbar = document.getElementById("navbar");
-  let navbarScheduled = false;
-  window.addEventListener("scroll", () => {
-    if (navbarScheduled) return;
-    navbarScheduled = true;
-    requestAnimationFrame(() => {
-      navbar.classList.toggle("scrolled", window.scrollY > 50);
-      navbarScheduled = false;
-    });
-  });
+  // Dynamic scroll styling removed as navbar is now solid white.
 
   // ─── HAMBURGER ────────────────────────────────────────────
   const hamburger = document.getElementById("hamburger");
@@ -225,24 +216,7 @@
   }
 
   // ─── PARALLAX SCROLLING ───────────────────────────────────
-  const parallaxLayers = document.querySelectorAll("[data-speed]");
-  let parallaxScheduled = false;
-
-  function updateParallax() {
-    if (parallaxScheduled) return;
-    parallaxScheduled = true;
-    requestAnimationFrame(() => {
-      const scrollY = window.scrollY;
-      parallaxLayers.forEach(layer => {
-        const speed = parseFloat(layer.dataset.speed);
-        const offset = scrollY * speed;
-        layer.style.transform = `translateY(${offset}px)`;
-      });
-      parallaxScheduled = false;
-    });
-  }
-
-  window.addEventListener("scroll", updateParallax, { passive: true });
+  // Parallax scrolling removed as requested.
 
   // ─── FLOATING CODE SNIPPETS ───────────────────────────────
   const codeSnippets = [
@@ -297,24 +271,46 @@
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // ─── CONTACT FORM ─────────────────────────────────────────
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", e => {
+  // ─── CONTACT FORM (WHATSAPP INTEGRATION) ─────────────────
+  const contactForms = document.querySelectorAll(".contact-form, #contactForm");
+  contactForms.forEach(form => {
+    form.addEventListener("submit", e => {
       e.preventDefault();
-      const btn = contactForm.querySelector(".btn-primary");
-      const originalHTML = btn.innerHTML;
-      btn.innerHTML = "<span>Message Sent ✓</span>";
-      btn.style.background = "#4CAF50";
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.style.background = "";
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3000);
+
+      const nameInput = form.querySelector('input[type="text"], input[name="name"]');
+      const emailInput = form.querySelector('input[type="email"], input[name="email"]');
+      const serviceInput = form.querySelector('select, [name="service"]');
+      const messageInput = form.querySelector('textarea, [name="message"]');
+
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const service = serviceInput ? serviceInput.value.trim() : "";
+      const message = messageInput ? messageInput.value.trim() : "";
+
+      let waText = `Hi TIA Software Solutions,\n\nI would like to request a free consultation.\n\n`;
+      if (name) waText += `*Name:* ${name}\n`;
+      if (email) waText += `*Email:* ${email}\n`;
+      if (service) waText += `*Service Needed:* ${service}\n`;
+      if (message) waText += `*Message:* ${message}\n`;
+
+      const waUrl = `https://wa.me/917358033243?text=${encodeURIComponent(waText)}`;
+      window.open(waUrl, "_blank");
+
+      const btn = form.querySelector(".btn-primary, button[type='submit']");
+      if (btn) {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = "<span>Opening WhatsApp... ✓</span>";
+        btn.style.background = "#25D366";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.style.background = "";
+          btn.disabled = false;
+          form.reset();
+        }, 3500);
+      }
     });
-  }
+  });
 
   // ─── TICKER PAUSE ON HOVER ────────────────────────────────
   const ticker = document.querySelector(".ticker");

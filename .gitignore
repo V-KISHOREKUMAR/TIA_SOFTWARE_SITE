@@ -1,19 +1,42 @@
-# OS files
+# OS & System Files
 .DS_Store
 Thumbs.db
+Desktop.ini
+*.tmp
+*.bak
+*.swp
 
-# Temp pagespeed and diagnostic files
+# Environment & Secret Files
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Temp Diagnostics & Audit Reports
 pagespeed_result.json
 lhreport.json
+lighthouse-report.*
+coverage/
+.lighthouseci/
+tmp_*.py
+audit_*.py
+add_*.py
+fix_*.py
+build_*.py
 
-# Local Python files/directories
+# Python Cache & Runtime Files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.ipynb_checkpoints
+.pytest_cache/
+.venv/
+env/
+venv/
+.ipynb_checkpoints/
 
-# Editor / IDE configuration
+# Editor / IDE Configurations
 .vscode/
 .idea/
 *.suo
@@ -21,9 +44,19 @@ __pycache__/
 *.njsproj
 *.sln
 *.sw?
+.project
+.settings/
 
-# Node modules (in case npm packages are installed locally)
+# Node & Package Managers
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
+.npm/
+
+# Build & Temporary Caches
+.cache/
+.tmp/
+dist/
+build/
